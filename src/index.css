@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Grey+Qo&family=Merriweather+Sans:wght@300;400;600;800&family=Raleway:wght@100;400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Lato:wght@100;300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Sintony&family=Source+Sans+Pro:wght@700&display=swap');
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow:visible;
+}
+
+:root {
+
+  /* --------------
+  My Variables 
+  -------------- */
+
+  /* ----- Colors ----- */
+  --primary-color: rgb(3, 42, 3);
+  --primary-dark: rgb(1, 18, 1);
+  --secondary-color: rgb(3, 47, 47);
+  --secondary-dark: rgb(1, 18, 18);
+  
+  --accent-color-1: white;
+  --accent-color-4: rgb(54,70,73);
+  --accent-color-5:  rgba(40, 222, 254, 0.799);
+
+  /* ---------- Shadows ---------- */
+
+  --filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+  
+  --overlay:linear-gradient(
+    hsl(0 0% 0% / 1),
+    rgba(75, 74, 74, 0.5) 20%,
+    hsl(0 0% 0% / 0));
+ 
+  /* ----- Main Fonts - Global ----- */
+/* Changed all to raleway... */
+  --Heading-font-family:'raleway', sans-serif;
+  /* ----Weights: 400, 500, 600, 900 & Italics: 400, 800*/
+  
+  --Main-font-family:'raleway', sans-serif;
+  /* ----Weights: 100 , 400, 500, 600, 700, 800  */
+
+  --Quote-font-family: 'raleway', sans-serif;
+  /* ----Weights: 400, 500, 600, 900 & Italics: 400, 800*/
+
+ 
+  /* ----- Fonts - Responsive Sizing ----- */
+  
+  --fs-xl: calc(7 * var(--bs-1));
+  --fs-lg: calc(5 * var(--bs-1));
+--fs-800: calc(4 * var(--bs-1))4rem;
+--fs-700: calc(2.75 * var(--bs-1));
+--fs-600:  calc(2.5 * var(--bs-1));
+--fs-500: calc(2.25 * var(--bs-1));
+--fs-400: calc(2 * var(--bs-1));
+
+  /*----------  base size (18px)----------- */
+  --bs-1: 18px;
+
+  @media screen (min-width: 40em) {
+    :root {
+      
+    --fs-xl: calc(5 * var(--bs-1));
+    --fs-lg: calc(3 * var(--bs-1));
+  --fs-800: calc(2 * var(--bs-1))4rem;
+  --fs-700: calc(.75 * var(--bs-1));
+  --fs-600:  calc(.5 * var(--bs-1));
+  --fs-500: calc(.25 * var(--bs-1));
+    }
+  }
+}
+
+  /* ******************************************************************
+                            Global Layout
+  ****************************************************************** */
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow:visible;
+  }
+  
+  html {
+    height: 100%;
+    /* background-color: white; */
+  }
+  
+  body {
+    height: 100%;
+    place-items: center;
+    font-family: var(--Main-font-family);
+    font-size: var(--fs-500);
+    line-height: 1.6;
+  }
+  
+  
+  
+  body:before {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background: var(--overlay);
+  }
+  
+  .bodybg {
+    z-index: -1;
+    display: block;
+  }
+  
+  
+  h2 {
+      color: white;
+      font-family: var(--Main-font-family);
+      text-transform: uppercase;
+      font-size: var(--fs-800);
+      font-weight: 100;
+  } 
+  
+  p {
+    font-size: 1rem;
+    font-family: var(--Main-font-family);
+  }
+  
+  * .container {
+    place-items: center;
+    /* font-weight: 200; */
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  
+  /* ---------- Global Navigation ---------- */
+  
+  * ul {
+    list-style: none;
+  }
+  
+  * a {
+    text-decoration: none;
+  }
+  
+  * .button {
+    padding: .5rem 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-family: var(--Heading-font-family);
+    font-size: .5em;
+    text-transform: uppercase;
+    background-color: var(--accent-color-3);
+    border: 1px solid var(--accent-color-4);
+    border-radius: 8px;
+    cursor:pointer;
+  }
+  
+  .button:hover {
+    background: var(--primary-color);
+    border: 1px solid var(--accent-color-2);
+  }
+  
+  
+  
+  /* ---------- Global Images ---------- */
+  img {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .line {
+    display: block;
+    width: 80px;
+    height: 1px;
+    margin: 0 auto;
+    background-color: var(--accent-react-blue-color);
+  }
+  
+  /* ---------- Global Media Queries ---------- */
+  @media screen and (max-width: 940px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  
+  }
+
+
+  /* ******************************************************************
+                              Header 
+  ****************************************************************** */
+
+body:before {
+  display: none;
+  }
+  
+  .header {
+      background-color: black;
+      position: fixed;
+      height:60px;
+      width: 100%;
+      top:0;
+      left:0;
+      z-index:1; 
+      transition: .3s ease-in;
+      overflow: hidden;
+  }
+
+
+  .logoPing {
+    width: 10%;
+    height: 25%;
+    padding-top: .5rem;
+  }
+
+  .logoBlack {
+    display: none;
+  }
+
+  
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+      margin: auto;
+      height:85%; /*must give height or flex won't display properly*/
+      padding: 0 .5em;
+  }
+  
+  .nav-menu a {
+      font-family: var(--Main-font-family);
+      font-size: .75rem;
+      color: white;
+  }
+  
+  .nav-menu {
+      display: flex;
+  }
+  
+  .nav-item {
+      padding: 0 1rem;
+      text-transform: uppercase;
+  }
+
+  .nav-menu a:hover {
+    font-family: 'Raleway' sans-serif;
+    font-weight: bold;
+    color: gray;
+}
+  
+
+  .hamburger {
+      display: none;
+  }
+  
+  @media screen and (max-width:940px) {
+    .header {
+        background-color: rgba(0, 0, 0, 0.623);
+        max-width: 100%;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        max-width: 100%;
+        height: 70px;
+        font-size: .4em;
+        background-color: black;
+    }
+
+    .logoPing {
+      width: 20%;
+      height: 25%;
+      padding-bottom: 1.25rem;
+    }
+
+    .hamburger {
+        display: block;
+        padding-bottom: .5em;
+    }
+
+    ul {
+        justify-content: space-evenly;
+    }
+
+    .nav-menu a {
+        font-family: 'Raleway' sans-serif;
+        font-size: .75rem;
+        font-weight: normal;
+    }
+    
+
+    /* dropdown menu */
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top:60px;
+        flex-direction: column;
+        background-color: var(--primary-dark);
+        width: 100vw;
+        height: 100vh;
+        z-index:999;
+        text-align: center;
+        transition: 1.5s;
+
+    }
+    /* this is how menu toggles */
+    .active {
+        right: 0;
+    }
+
+    .nav-item {
+        margin: 1.5rem 0;
+    }
+
+ .nav-item a:hover {
+        padding-bottom: .5em;   
+    }
+
+
+
+}
+
+   /* ******************************************************************
+                              Landing Page
+  ****************************************************************** */
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.main-hero {
+  display: block;
+  content: '';
+  background: rgba(50, 50, 50, 0.397);
+  background-attachment: fixed;
+  background: linear-gradient(
+      hsl(0 0% 0% / 1),
+      rgba(75, 74, 74, 0.5) 30%,
+      hsl(0 0% 0% / 0))
+      , url("./images/black-nurse.jpeg");
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.mobile-hero {
+  display: none;
+}
+
+.landing-content { 
+  height: 100%;
+}
+
+
+.sanna-logo{
+  grid-column: 4/6;
+  grid-row: 2/3;
+  align-self: center;
+  justify-self: center;
+  max-width: 50vw;
+  padding: 1.5rem;
+}
+
+.sanna-mobile-logo{
+  display: none;
+}
+
+.grid-container{
+  max-width: 90vw;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 2fr, 3fr;
+}
+
+.motto {
+  grid-column: 4/6;
+  text-align: center;
+  font-size: 2.75rem;
+  padding-top: 3rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  text-transform: capitalize;
+}
+
+.mobile-se {
+  display: none;
+}
+
+.email {
+  grid-row: 3/4;
+  grid-column: 4/6;
+  align-self: end;
+  justify-self: center; 
+  padding: .25rem;
+}
+
+input {
+  margin-right: 1rem;
+  border: none;
+  height: 35px;
+  width: 16rem;
+  border-radius: 4px;
+  border-color: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  height: 35px;
+  width: 80px;
+  background: transparent;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: var(--primary-dark);
+  box-shadow: none;
+  background-color: var(--primary-dark);
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Realeway', sans-serif;
+}
+
+.quotation {
+  grid-row: 454;
+  grid-column: 4/6;
+  font-size: 3rem;
+  text-align: center;
+  font-family: 'Sintony', sans-serif;
+  font-size: .5rem;
+  color: var(--primary-color);
+}
+
+
+@media screen and (max-width: 940px) {
+
+  .main-hero {
+      padding-top: 1.5em;
+      padding-left: 1 em;
+  }
+
+  .sanna-logo{
+    grid-column: 4/6;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+    min-width: 100vw;
+    padding-top: 1.5rem;
+    padding-right: 3rem;
+  }
+
+  .motto {
+    padding-top: 0;
+    padding-right: 3rem;
+  }
+
+  .quotation {
+    color: white;
+  }
+
+}
+  
+  /* ******************************************************************
+                              About Page
+  ****************************************************************** */
+
+  .about {
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 0 12rem;
+}
+
+.about .title {
+  color: var(--primary-dark);
+  margin-top: 2em;
+  padding: 2em, 0, 0, 2em;
+}
+
+.about .container {
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.about p {
+font-size: 1rem;
+line-height: 1.5rem;
+text-align: justify;
+color: var(--primary-dark);
+}
+
+
+@media screen and (max-width: 940px) {
+  .about {
+    padding: .1em;
+  }
+}
+
+/* ******************************************************************
+                            Events
+  ****************************************************************** */
+  .events {
+    background: white;
+    width: 100%;
+    height: 100%;
+    padding: 0 12rem;
+}
+
+ .title {
+  color: var(--primary-dark);
+  margin-top: 2em;
+  padding: 2em, 0, 0, 2em;
+}
+
+.years {
+  display: flex;
+  list-style: none;
+}
+
+.years li {
+  margin-left: 1rem;
+}
+
+.years li:hover {
+  color: gray;
+  border-bottom: 1px solid gray;
+}
+
+h2 {
+  font-family: 'Raleway' sans-serif;
+  font-size: 2rem;
+  color: var(--primary-color-dark);
+}
+
+@media screen and (max-width: 940px) {
+  .events {
+    padding: .1em;
+  }
+}
+
+  /* ******************************************************************
+                            Gallery
+  ****************************************************************** */
+.gallery {
+  background: white;
+  width: 100%;
+  height: 100%;
+  padding: 0 12rem;
+}
+
+ .title {
+  color: var(--primary-dark);
+  margin-top: 2em;
+  padding: 2em, 0, 0, 2em;
+}
+
+.gallery .grid-container {
+  display: grid;
+    height: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    /* grid-template-rows: repeat(3 30%); */
+}
+
+.grid-container img:hover {
+  
+}
+
+@media screen and (max-width: 940px) {
+.gallery {
+  padding: .1em;
+  }
+
+  .gallery .grid-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .gallery img {
+    min-width: 100vw;
+    padding: 1rem 1.75rem, 1rem, 0;
+  }
+
+}
+
+
+/* ******************************************************************
+                            Titles
+  ****************************************************************** */
+ 
